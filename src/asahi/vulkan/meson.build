@@ -561,6 +561,16 @@ if with_tests
     gnu_symbol_visibility : 'hidden',
   )
 
+  # Also a no-op shim test, registered with the shim in ../meson.build.
+  hk_vulkan_explicit_plane_layout = executable(
+    'hk-vulkan-explicit-plane-layout',
+    files('tests/hk_vulkan_explicit_plane_layout.c'),
+    include_directories : [inc_include],
+    dependencies : [cc.find_library('vulkan')],
+    c_args : [c_msvc_compat_args],
+    gnu_symbol_visibility : 'hidden',
+  )
+
 endif
 
 if with_tests
